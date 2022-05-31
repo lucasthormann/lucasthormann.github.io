@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Description">
+    <meta name="author" content="Author">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link -->
+	<meta property="og:url" content="" /> <!-- where post to links to -->
+	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>Project 3 - MIGHTY</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+	<link href="css/magnific-popup.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/thoricon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="index.html"><img src="images/mightygif.gif" alt="alternative"></a> 
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.html#header">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.html#skills">SKILLS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.html#tabs">EXPERIENCE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.html#timeline">EDUCATION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.html#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PROJECTS</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item page-scroll" href="ai.html">PROJECT 1</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="life.html">PROJECT 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="mighty.html">PROJECT 3</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="ex-header bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>BamBam Coin (MIGHTY)</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-4 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h3 class="mt-5 mb-3">How I Made My Very Own Cryptocurrency Token</h3>
+                    <h4>1. I Found Inspiration</h3>
+                    <p class="mb-5">I've wanted to honor my family dog ever since he passed. He was a purebred, Apple Head Chihuahua that I grew up with. 
+                        His name was Bambino because he was the baby of my family. He went by Bam Bam for short. His middle name was Mighty because of his imposing figure. (; Once I discovered that all data on a blockchain 
+                        is immutable, a lightbulb went on in my head! What better way to honor him than to keep his name alive forever? After some research,
+                        I decided to build on Solana because of its transaction speeds & low gas fees.
+                    </p>
+                    <h4>2. I Created The Token</h3>
+                    <h6>I first had to install the Solana developer tools.</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# sh -c “$(curl -sSfL https://release.solana.com/v1.8.5/install)”
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>I then created a crypto wallet that holds sol & it's derivative tokens.</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# solana-keygen new
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>Next, I had to install Rust.</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# curl https://sh.rustup.rs -sSf | sh
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>I then had to install various developer tools.</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# sudo apt install libudev-dev
+root@localhost:~# sudo apt install libssl-dev pkg-config -y
+root@localhost:~# sudo apt install build-essential -y
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>My next step was to install the Solana token program (a CLI tool that can be used to install a token onto the Solana blockchain).</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# cargo install spl-token-cli
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>I then officially created a token on the Solana blockchain!</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# spl-token create-token
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>Next, I had to create an account for my token that's able to hold it.</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# spl-token create-account *token ID*
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <h6>Then I got to mint my tokens onto the chain. (:</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# spl-token mint *token ID* *number to mint* *account ID*
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+
+                    <h4 class="mb-3">3. I Beautified My Token</h4>
+                    <p>In order for my token to be recognizable, I had to take a few steps.</p>
+                    <ul class="list-unstyled li-space-lg mb-4">
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">I had to choose a logo for my token.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Upload the image to a github repo & copy the raw github url for the photo.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Fork the solana-labs/token-list repository.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Update the /assets folder with my token information.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Update the .json file in the /src/tokens folder with more token information.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Commit changes to the fork & attempt to merge it via a pull request.</div>
+                        </li>
+                    </ul>
+                    <p class="mb-5">Thankfully the Solana team accepted my request & made my BamBam Coin a reality!</p>
+                    
+                    <h4 class="mb-3">4. I Sent MIGHTY Tokens All Around</h4>
+                    <h6>This is how I transferred my tokens to other wallets.</h6>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-shell-session">
+root@localhost:~# spl-token transfer –fund-recipient –allow-unfunded-recipient *token ID* *number to send* *recipient address*
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <p> Sadly, these tokens are not for sale. If I wanted others to be able to buy MIGHTY tokens I'd have to follow 
+                        an extremely convoluted process. If I wanted to do so, I'd have to:
+                    </p>
+                    <ul class="list-unstyled li-space-lg mb-4">
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Set my token up on an exchange.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Create a market for my token.</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Set up some liquidity pools.</div>
+                        </li>
+                    </ul>
+                    <p class="mb-5"> I don't currently have the funds to set up liquidity pools nor do I have willing hodlers for this token. 
+                        Though, one day, I'd love to create a token with functionality and financial efficacy. Actually, I have a few ideas for a new token. (;
+                    </p>
+                    <h4 class="mb-3">If You'd Like Some MIGHTY LMK</h4>
+                    <p class="mb-4">This will require some effort on your part and you <strong>will not</strong> benefit from doing this. But, if you're 
+                        interested in seeing whether this coin is real or not following these directions <strong>exactly</strong>.</p>
+                    <ul class="list-unstyled li-space-lg mb-5">
+                        <li class="media">
+                            <strong>1.</strong>
+                            <div class="media-body">Add the Phantom extension to your browser (Their logo is a white ghost with purple eyeholes in front of a purple background).</div>
+                        </li>
+                        <li class="media">
+                            <strong>2.</strong>
+                            <div class="media-body">Once it's added, open it & click "Create New Wallet".</div>
+                        </li>
+                        <li class="media">
+                            <strong>3.</strong>
+                            <div class="media-body">Be sure to save your mnemonic phrase!</div>
+                        </li>
+                        <li class="media">
+                            <strong>4.</strong>
+                            <div class="media-body">Create your password & agree to the terms of service (Only after you've read them! LOL) & press "Save" then "Continue" then "Finish".</div>
+                        </li>
+                        <li class="media">
+                            <strong>5.</strong>
+                            <div class="media-body">Then contact me and ask for some MIGHTY. I'll be sure to send you some tokens. (:</div>
+                        </li>
+                    </ul>
+                    
+                    <div class="text-box mb-5">
+                        <h3>Conclusion</h3>
+                        <p>Jyfwav pz wylaaf hdlzvtl!</p>
+                        <p>If you'd like to make a new friend, here's one of my Solana addresses. 1 sol = 1 new friend. (:</p>
+                        <p>pubkey: 6MXMMmtVRS9WuyqPYaR46tUC4ZGxjaYGzTju2EKjtUa6</p>
+                        <p>By the way, you can check out the history of my token on Solscan.</p>
+                    </div> <!-- end of text-box -->
+                    <a class="btn-solid-reg mb-5" href="https://solscan.io/token/GkSjBhh6G5BZ6zwp22Re33j2i6wbzZUANSoA7rbru8cu#txs">Token History</a>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+    <!-- Footer -->
+    <div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer-col third">
+                    <span class="fa-stack">
+                        <a href="https://github.com/lucasthormann">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-github fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://www.linkedin.com/in/lucas-thormann-51907223a/">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-linkedin fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <p class="p-small">Feel free to contact me directly via email or my socials as well. (: <a href="mailto:LucasThormann@protonmail.com"><strong><u>LucasThormann@protonmail.com</u></strong></a></p>
+                </div> <!-- end of footer-col -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="p-small">Copyright © <a href="#your-link">Lucas Thormann</a></p>
+            </div> <!-- end of col -->
+        </div> <!-- enf of row -->
+    </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="js/prism.js"></script> <!-- Highlight text like code -->
+</body>
+</html>

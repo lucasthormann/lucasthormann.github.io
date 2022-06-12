@@ -5,3 +5,6 @@
 ```
 git clone https://github.com/lucasthormann/lucasthormann.github.io
 ```
+
+**License**
+* This project is licensed under the CC License

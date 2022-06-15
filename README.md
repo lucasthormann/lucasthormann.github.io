@@ -1,5 +1,5 @@
 # ***Resume Website***
-* This software is my first attempt to create a website. I've decided to implement it in the form of a resume for utility sake.
+* This software is my first attempt at creating a website. I've decided to implement it in the form of a resume for utility sake.
 
 **Clone Repo**
 ```

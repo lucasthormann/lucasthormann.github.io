@@ -502,11 +502,6 @@ select {
 	text-align: center;
 }
 
-.header .btn-outline-lg {
-	display: block;
-	text-align: center;
-}
-
 .header .swiper-button-prev,
 .header .swiper-button-next {
 	width: 18px;

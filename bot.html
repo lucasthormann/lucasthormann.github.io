@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio Website">
+    <meta name="author" content="Lucas Thormann">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn -->
+	<meta property="og:site_name" content="Lucas Thormann - Portfolio" /> <!-- website name -->
+	<meta property="og:site" content="https://lucasthormann.github.io" /> <!-- website link -->
+	<meta property="og:title" content="Lucas Thormann - Portfolio"/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="Lucas Thormann - Portfolio" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="images/avatar.jpg" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="https://lucasthormann.github.io" /> <!-- where do you want your post to link to -->
+	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>Project 5 - Lite Bot</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+	<link href="css/magnific-popup.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/thoricon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="index"><img src="images/apple.gif" alt="alternative"></a> 
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#header">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#skills">SKILLS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#tabs">EXPERIENCE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#timeline">EDUCATION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PROJECTS</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item page-scroll" href="ai">Expert System</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="life">Game Of Life</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="mighty">MIGHTY</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="coder">Local Coder</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="bot">Lite Bot</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="ex-header bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>RAG Chatbot</h1> 
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-4 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h4>What I Developed</h4>
+                    <p>I developed a lightweight chatbot that leverages Retrieval-Augmented Generated to provide contextually relevant responses. I chose to embed a short biography of me which the local LLM uses to answer questions about me. My idea is that anyone could use it to answer some questions they may have about me.</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-3 pb-5 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h4>High Level Explanation</h4>
+                    <p>RAG stands for Retrieval-Augmented Generation. RAG chatbots work by combining two models: a retrieval model and a generation model. The retrieval model is used to search for relevant information from a given source, in this case a small database. The generation model then uses this information to generate a response to the user's query. The key difference between RAG chatbots and traditional chatbots is that RAG chatbots use a retrieval model to supplement the generation model's capabilities. This allows RAG chatbots to generate more accurate and relevant responses to user queries. </p>
+                    <h4>The Design - Embedding Model</h4>
+                    <p>I chose to keep the file type strictly PDFs. This allowed for the embedding technique to be simple to implement. The text from the PDF file is stored in a vector database (ChromaDB) in chunks.</p>
+                    <div class="text-box mb-5">
+                    <pre><code class="language-cpp">
+import os
+from datetime import datetime
+from werkzeug.utils import secure_filename
+from langchain_community.document_loaders import UnstructuredPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from get_vector_db import get_vector_db
+
+TEMP_FOLDER = os.getenv('TEMP_FOLDER', './_temp')
+
+def allowed_file(filename):
+    return filename.lower().endswith('.pdf')
+
+def save_file(file):
+    filename = f"{datetime.now().timestamp()}_{secure_filename(file.filename)}"
+    file_path = os.path.join(TEMP_FOLDER, filename)
+    file.save(file_path)
+    return file_path
+
+def load_and_split_data(file_path):
+    loader = UnstructuredPDFLoader(file_path=file_path)
+    data = loader.load()
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=7500, chunk_overlap=100)
+    return text_splitter.split_documents(data)
+
+def embed(file):
+    if file and allowed_file(file.filename):
+        file_path = save_file(file)
+        chunks = load_and_split_data(file_path)
+        db = get_vector_db()
+        db.add_documents(chunks)
+        db.persist()
+        os.remove(file_path)
+        return True
+    return False
+                    </code></pre>
+                    </div> <!-- end of text-box -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+   
+    <div class="ex-basic-2 pt-3 pb-5 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h4>The Design - The Backend</h4>
+                    <p>I wrote a simple Flask app to serve the backend as an endpoint. I included a few necessary routes and decided to allow access from any origin for simplicity sake.</p>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-cpp">
+import os
+from dotenv import load_dotenv
+from flask import Flask, request, jsonify, make_response
+from embed import embed
+from query import query
+from delete import delete_persisted_db
+from get_vector_db import get_vector_db
+
+load_dotenv()
+TEMP_FOLDER = os.getenv('TEMP_FOLDER', './_temp')
+os.makedirs(TEMP_FOLDER, exist_ok=True)
+
+app = Flask(__name__)
+
+@app.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response  
+    
+@app.route('/delete', methods=['DELETE'])
+def route_delete():
+    try:
+        delete_persisted_db()
+        return {"message": "Database has been deleted."}
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))  
+
+@app.route('/embed', methods=['POST'])
+def route_embed():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+    embedded = embed(file)
+    return jsonify({"message": "File embedded successfully"}) if embedded else jsonify({"error": "Embedding failed"}), 400
+
+@app.route('/query', methods=['POST', 'OPTIONS'])
+def route_query():
+    if request.method == "OPTIONS": # CORS preflight
+        return _build_cors_preflight_response()
+    elif request.method == "POST": # The actual request following the preflight
+        data = request.get_json()
+        response = query(data.get('query'))
+        return _corsify_actual_response(jsonify(response))
+    else:
+        raise RuntimeError("Weird - don't know how to handle method {}".format(request.method))
+        
+def _build_cors_preflight_response():
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
+    return response
+
+def _corsify_actual_response(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
+    
+
+if __name__ == '__main__':
+    app.run(host="127.0.0.1", port=8080, debug=True)
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <ul class="list-unstyled li-space-lg mb-5">
+                        <h4>Conclusion</h4>
+                        <p>No matter how well trained a model may be, it can always benefit from Retrieval-Augmented Generation. I plan to spend more time exploring this technique.
+                        </p>
+                    </ul>
+
+                    <a class="btn-solid-reg mb-5" href="https://github.com/lucasthormann/lite-bot">Full Program</a>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-col third">
+                        <span class="fa-stack">
+                            <a href="https://github.com/lucasthormann">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://www.linkedin.com/in/lucas-thormann-51907223a/">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <p class="p-small">Feel free to contact me directly via email or my socials. <a href="mailto:LucasThormann@pm.me"><strong><u>LucasThormann@pm.me</u></strong></a></p>
+                    </div> <!-- end of footer-col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © <a href="#your-link">Lucas Thormann</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="js/prism.js"></script> <!-- Highlight text like code -->
+</body>
+</html>

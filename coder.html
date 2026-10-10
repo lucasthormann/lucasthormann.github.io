@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio Website">
+    <meta name="author" content="Lucas Thormann">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn -->
+	<meta property="og:site_name" content="Lucas Thormann - Portfolio" /> <!-- website name -->
+	<meta property="og:site" content="https://lucasthormann.github.io" /> <!-- website link -->
+	<meta property="og:title" content="Lucas Thormann - Portfolio"/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="Lucas Thormann - Portfolio" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="images/avatar.jpg" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="https://lucasthormann.github.io" /> <!-- where do you want your post to link to -->
+	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>Project 4 - Local Coder</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+	<link href="css/magnific-popup.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/thoricon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="index"><img src="images/apple.gif" alt="alternative"></a> 
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#header">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#skills">SKILLS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#tabs">EXPERIENCE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#timeline">EDUCATION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PROJECTS</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item page-scroll" href="ai">Expert System</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="life">Game Of Life</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="mighty">MIGHTY</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="coder">Local Coder</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="ex-header bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>Multi-Agent Coding Assistant</h1> 
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-4 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h4>What I Developed</h4>
+                    <p>I developed a coding assistant that leverages multiple, local large language models.</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-3 pb-5 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h4>High Level Explanation</h4>
+                    <p>Each model is assigned a role (i.e., Supervisor, Researcher, Coder, or Critic). The Supervisor is the brains of the operation in that it decides which agent is called next. It typically begins by calling the Researcher. The Researcher is responsible for researching how to build the project referenced in the user query. This system is agentic in the sense that the researcher is capable of scrapping the web for useful information. Next, the Critic analyzes the Researcher's findings and breaks it down into implementable steps. Then the Coder writes the actual code. It's up to the Supervisor to decide whether to continue cycling through these agents or conclude the process.</p>
+                    <h4>The Design - Specialized Utility of LLMs</h4>
+                    <p>I chose to employ models that were trained on unique datasets to fulfill specific purposes (i.e., coding, long-term reasoning, etc.). For instance, ornith:9b is marketed as a agentic coding assistant on it's own therefore I use it as the coding agent in this system.</p>
+                    <div class="text-box mb-5">
+                    <pre><code class="language-cpp">
+# Models
+researcher_model = ChatOllama(model="llama3.1:8b")
+coder_model = ChatOllama(model="ornith:9b")
+critic_model = ChatOllama(model="mistral:7b")
+supervisor_model = ChatOllama(model="dolphin3:8b", temperature=0)
+                    </code></pre>
+                    </div> <!-- end of text-box -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+   
+    <div class="ex-basic-2 pt-3 pb-5 bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h4>The Design - Task Routing</h4>
+                    <p>Additionally, I designed the system to route tasks automatically. In other words, there is no human in this loop! The program terminates whenever the Supervisor agent is satisfied with the output.</p>
+                    <div class="text-box mb-5">
+                        <pre><code class="language-cpp">
+def supervisor_node(state: AgentState):
+    orig = state["messages"][-1].content.split()
+    res = " ".join(orig)
+    
+    response = supervisor_model.invoke(
+        [SystemMessage(content=SUPERVISOR_PROMPT), str(res)]
+    )
+
+    valid_choices = {"Researcher", "Coder", "Critic"}
+    content = getattr(response, "content", "") if response else ""
+
+    matches = re.findall(r"\b(?:Researcher|Coder|Critic)\b", content)
+    choice = matches[0] if len(matches) == 1 and matches[0] in valid_choices else "FINISH"
+    return {
+        "messages": [
+            AIMessage(content=f"## Routing to {choice}.", name="Supervisor")
+        ],
+        "next": choice,
+    }
+
+
+
+# Routing after the supervisor chooses a destination.
+def route_from_supervisor(state: AgentState) -> str:
+    return state["next"]
+
+
+# Routing after a worker: execute requested tools, or return to supervisor.
+def route_after_worker(state: AgentState) -> str:
+    last_message = state["messages"][-1]
+    if isinstance(last_message, AIMessage) and last_message.tool_calls:
+        return "tools"
+    return "Supervisor"
+
+
+# Build graph
+graph = StateGraph(AgentState)
+
+graph.add_node("Supervisor", supervisor_node)
+graph.add_node("Researcher", researcher)
+graph.add_node("Coder", coder)
+graph.add_node("Critic", critic)
+graph.add_node("tools", tool_node)
+
+graph.set_entry_point("Supervisor")
+
+graph.add_conditional_edges(
+    "Supervisor",
+    route_from_supervisor,
+    {
+        "Researcher": "Researcher",
+        "Coder": "Coder",
+        "Critic": "Critic",
+        "FINISH": END,
+    },
+)
+                        </code></pre>
+                    </div> <!-- end of text-box -->
+                    <ul class="list-unstyled li-space-lg mb-5">
+                        <h4>Conclusion</h4>
+                        <p>This was my introduction into agentic systems and I'm beyond amazed. I can only imagine what larger models are capable of; it's almost frightening. I'm content experimenting with these little models for now.
+                        </p>
+                    </ul>
+
+                    <a class="btn-solid-reg mb-5" href="https://github.com/lucasthormann/local-coder">Full Program</a>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-col third">
+                        <span class="fa-stack">
+                            <a href="https://github.com/lucasthormann">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://www.linkedin.com/in/lucas-thormann-51907223a/">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <p class="p-small">Feel free to contact me directly via email or my socials. <a href="mailto:LucasThormann@pm.me"><strong><u>LucasThormann@pm.me</u></strong></a></p>
+                    </div> <!-- end of footer-col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © <a href="#your-link">Lucas Thormann</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="js/prism.js"></script> <!-- Highlight text like code -->
+</body>
+</html>

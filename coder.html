@@ -99,7 +99,7 @@
                     <h4>High Level Explanation</h4>
                     <p>Each model is assigned a role (i.e., Supervisor, Researcher, Coder, or Critic). The Supervisor is the brains of the operation in that it decides which agent is called next. It typically begins by calling the Researcher. The Researcher is responsible for researching how to build the project referenced in the user query. This system is agentic in the sense that the researcher is capable of scrapping the web for useful information. Next, the Critic analyzes the Researcher's findings and breaks it down into implementable steps. Then the Coder writes the actual code. It's up to the Supervisor to decide whether to continue cycling through these agents or conclude the process.</p>
                     <h4>The Design - Specialized Utility of LLMs</h4>
-                    <p>I chose to employ models that were trained on unique datasets to fulfill specific purposes (i.e., coding, long-term reasoning, etc.). For instance, ornith:9b is marketed as a agentic coding assistant on it's own therefore I use it as the coding agent in this system.</p>
+                    <p>Large Language Models (LLMs) are artificial intelligence systems that use deep learning algorithms to recognize and produce human-like language. These models are trained on vast amounts of text data, and they learn to generate text based on patterns they find in the training data. I chose to employ models that were trained on unique datasets to fulfill specific purposes (i.e., coding, long-term reasoning, etc.). For instance, ornith:9b is marketed as an agentic coding assistant, therefore I use it as the coding agent in this system.</p>
                     <div class="text-box mb-5">
                     <pre><code class="language-cpp">
 # Models
@@ -119,7 +119,7 @@ supervisor_model = ChatOllama(model="dolphin3:8b", temperature=0)
             <div class="row">
                 <div class="col-xl-10 offset-xl-1">
                     <h4>The Design - Task Routing</h4>
-                    <p>Additionally, I designed the system to route tasks automatically. In other words, there is no human in this loop! The program terminates whenever the Supervisor agent is satisfied with the output.</p>
+                    <p>Additionally, I designed the system to route tasks automatically. In other words, there is no human in this loop! One of the primary benefits of this approach is increased output efficiency, as these loops can perform tasks much faster than humans. This approach also allows me to automate large portions of my coding process, freeing up time for me to complete more complex and creative tasks.</p>
                     <div class="text-box mb-5">
                         <pre><code class="language-cpp">
 def supervisor_node(state: AgentState):
@@ -142,20 +142,9 @@ def supervisor_node(state: AgentState):
         "next": choice,
     }
 
-
-
 # Routing after the supervisor chooses a destination.
 def route_from_supervisor(state: AgentState) -> str:
     return state["next"]
-
-
-# Routing after a worker: execute requested tools, or return to supervisor.
-def route_after_worker(state: AgentState) -> str:
-    last_message = state["messages"][-1]
-    if isinstance(last_message, AIMessage) and last_message.tool_calls:
-        return "tools"
-    return "Supervisor"
-
 
 # Build graph
 graph = StateGraph(AgentState)
@@ -182,7 +171,8 @@ graph.add_conditional_edges(
                     </div> <!-- end of text-box -->
                     <ul class="list-unstyled li-space-lg mb-5">
                         <h4>Conclusion</h4>
-                        <p>This was my introduction into agentic systems and I'm beyond amazed. I can only imagine what larger models are capable of; it's almost frightening. I'm content experimenting with these little models for now.
+                        <p>The future of agentic systems is a topic of great interest and speculation. These systems, which include robots, artificial intelligence, and other forms of automation, have the potential to revolutionize industries, improve efficiency, and enhance productivity. However, there are also concerns about the impact of agentic systems on human employment, privacy, and autonomy. As these systems become more advanced and capable, there is a risk that they may replace human workers in many jobs, leading to significant social and economic upheaval. Ultimately, the future of agentic systems will depend on our ability to balance the benefits of technology with the needs and values of human society. By designing and deploying these systems in a responsible and sustainable way, we can harness their potential to create a better future for all.
+
                         </p>
                     </ul>
 

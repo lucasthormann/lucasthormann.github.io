@@ -488,8 +488,46 @@ select {
 	border-radius: 4px;
 }
 
-.header h1 {
-	margin-bottom: 0.875rem;
+.header .animation-container {
+  align-self: center;
+  width: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header .animation-container h1 {
+  font-family: serif;
+  font-style: bold;
+  font-size: 4rem;
+  padding: 0.3em;
+  /* Rainbow Gradient */
+  background: linear-gradient(
+    270deg,
+    #ff0000,
+    #ff9900,
+    #ffff00,
+    #33cc33,
+    #0066ff,
+    #6600cc,
+    #ff3399,
+    #ff0000
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: rainbowMove 5s linear infinite;
+}
+
+@keyframes rainbowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .header .text-container p {

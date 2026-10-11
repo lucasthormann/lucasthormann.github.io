@@ -1,2 +1,5 @@
-# ***Lite Portfolio (deprecated)***
-* This was my first attempt at creating a website.
+# ***Lite Portfolio***
+* This is a simple, static portfolio website.
+```
+https://lucasthormann.github.io
+```

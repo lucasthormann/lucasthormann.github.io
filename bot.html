@@ -99,7 +99,8 @@
                     <h4>High Level Explanation</h4>
                     <p>RAG stands for Retrieval-Augmented Generation. RAG chatbots work by combining two models: a retrieval model and a generation model. The retrieval model is used to search for relevant information from a given source, in this case a small database. The generation model then uses this information to generate a response to the user's query. The key difference between RAG chatbots and traditional chatbots is that RAG chatbots use a retrieval model to supplement the generation model's capabilities. This allows RAG chatbots to generate more accurate and relevant responses to user queries. </p>
                     <h4>The Design - Embedding Model</h4>
-                    <p>I chose to keep the file type strictly PDFs. This allowed for the embedding technique to be simple to implement. The text from the PDF file is stored in a vector database (ChromaDB) in chunks.</p>
+                    <p>A vector database is a type of database that stores data in a numerical format known as vectors. These vectors are generated using machine learning algorithms that convert the input data into a numerical representation that can be easily searched and retrieved. In the context of this Retrieval-Augmented Generation application, the vector database is used to embed PDFs into numerical vectors that can be searched and retrieved using a search engine. The search engine uses the numerical 
+vectors to determine the similarity between the input query and the stored PDFs. The most similar PDFs are then retrieved and used to generate new text that is relevant to the input query.</p>
                     <div class="text-box mb-5">
                     <pre><code class="language-cpp">
 import os
@@ -148,7 +149,7 @@ def embed(file):
             <div class="row">
                 <div class="col-xl-10 offset-xl-1">
                     <h4>The Design - The Backend</h4>
-                    <p>I wrote a simple Flask app to serve the backend as an endpoint. I included a few necessary routes and decided to allow access from any origin for simplicity sake.</p>
+                    <p>I wrote a web service using Flask that leverages the predefined machine learning algorithms to generate text based on input queries and relevant documents. The endpoint is responsible for receiving input queries, retrieving relevant documents from a database, and generating new text that is relevant to the input query.</p>
                     <div class="text-box mb-5">
                         <pre><code class="language-cpp">
 import os
@@ -218,7 +219,7 @@ if __name__ == '__main__':
                     </div> <!-- end of text-box -->
                     <ul class="list-unstyled li-space-lg mb-5">
                         <h4>Conclusion</h4>
-                        <p>No matter how well trained a model may be, it can always benefit from Retrieval-Augmented Generation. I plan to spend more time exploring this technique.
+                        <p>Retrieval-Augmented Generation (RAG) is a promising field of research in artificial intelligence that has the potential to revolutionize the way we interact with technology in the future. RAG combines the strengths of retrieval methods, such as keyword search and question-answering, with the power of generative models to create a more advanced and intuitive way of accessing information. In the not so distant future, RAG applications will enable users to ask complex questions and receive detailed, relevant answers, even when the specific information is not stored in the model's knowledge base. By combining the strengths of retrieval and generation, RAG models could lead to more intuitive, natural, and human-like interactions with machines, revolutionizing the way we access information, create content, and collaborate with AI.
                         </p>
                     </ul>
 
